@@ -1,0 +1,15 @@
+# .gitignore config file
+
+# Exclude OS X folder attributes
+.DS_Store
+
+# intermedia files
+DerivedData/
+
+# Exclude user-specific XCode files
+YeeCall-App.xcodeproj/project.xcworkspace/
+YeeCall-App.xcworkspace/xcshareddata/
+xcuserdata/
+build/
+*.xccheckout
+

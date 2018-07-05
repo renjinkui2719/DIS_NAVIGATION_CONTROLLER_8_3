@@ -1,0 +1,676 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		915CAD8820EB406A007E2EDD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CAD8720EB406A007E2EDD /* AppDelegate.m */; };
+		915CAD8B20EB406A007E2EDD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CAD8A20EB406A007E2EDD /* ViewController.m */; };
+		915CAD8E20EB406A007E2EDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915CAD8C20EB406A007E2EDD /* Main.storyboard */; };
+		915CAD9020EB406B007E2EDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 915CAD8F20EB406B007E2EDD /* Assets.xcassets */; };
+		915CAD9320EB406B007E2EDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915CAD9120EB406B007E2EDD /* LaunchScreen.storyboard */; };
+		915CAD9620EB406B007E2EDD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CAD9520EB406B007E2EDD /* main.m */; };
+		915CADA020EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CAD9F20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3Tests.m */; };
+		915CADAB20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CADAA20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3UITests.m */; };
+		91C0F60420EE74EF00527E70 /* VINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5ED20EE74EF00527E70 /* VINavigationController.m */; };
+		91C0F60520EE74EF00527E70 /* _VINavigationParallaxTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5EE20EE74EF00527E70 /* _VINavigationParallaxTransition.m */; };
+		91C0F60620EE74EF00527E70 /* _VIBarPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F020EE74EF00527E70 /* _VIBarPanGestureRecognizer.m */; };
+		91C0F60720EE74EF00527E70 /* _VIAnimationCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F120EE74EF00527E70 /* _VIAnimationCoordinator.m */; };
+		91C0F60820EE74EF00527E70 /* UIView+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F220EE74EF00527E70 /* UIView+Private.m */; };
+		91C0F60920EE74EF00527E70 /* UIViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F320EE74EF00527E70 /* UIViewController+Private.m */; };
+		91C0F60A20EE74EF00527E70 /* UINavigationBar+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F420EE74EF00527E70 /* UINavigationBar+Private.m */; };
+		91C0F60B20EE74EF00527E70 /* VINavigationTransitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F620EE74EF00527E70 /* VINavigationTransitionView.m */; };
+		91C0F60C20EE74EF00527E70 /* UIApplication+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F820EE74EF00527E70 /* UIApplication+Private.m */; };
+		91C0F60D20EE74EF00527E70 /* _VINavigationInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F920EE74EF00527E70 /* _VINavigationInteractiveTransition.m */; };
+		91C0F60E20EE74EF00527E70 /* _VINavigationControllerPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5FA20EE74EF00527E70 /* _VINavigationControllerPalette.m */; };
+		91C0F60F20EE74EF00527E70 /* VINavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5FB20EE74EF00527E70 /* VINavigationBar.m */; };
+		91C0F61020EE74EF00527E70 /* _VIBarTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5FF20EE74EF00527E70 /* _VIBarTapGestureRecognizer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		915CAD9C20EB406B007E2EDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 915CAD7B20EB406A007E2EDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 915CAD8220EB406A007E2EDD;
+			remoteInfo = DIS_NAVIGATION_CONTROLLER_8_3;
+		};
+		915CADA720EB406B007E2EDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 915CAD7B20EB406A007E2EDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 915CAD8220EB406A007E2EDD;
+			remoteInfo = DIS_NAVIGATION_CONTROLLER_8_3;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		915CAD8320EB406A007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DIS_NAVIGATION_CONTROLLER_8_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		915CAD8620EB406A007E2EDD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		915CAD8720EB406A007E2EDD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		915CAD8920EB406A007E2EDD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		915CAD8A20EB406A007E2EDD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		915CAD8D20EB406A007E2EDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		915CAD8F20EB406B007E2EDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		915CAD9220EB406B007E2EDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		915CAD9420EB406B007E2EDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		915CAD9520EB406B007E2EDD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		915CAD9B20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DIS_NAVIGATION_CONTROLLER_8_3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		915CAD9F20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIS_NAVIGATION_CONTROLLER_8_3Tests.m; sourceTree = "<group>"; };
+		915CADA120EB406B007E2EDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		915CADA620EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DIS_NAVIGATION_CONTROLLER_8_3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		915CADAA20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIS_NAVIGATION_CONTROLLER_8_3UITests.m; sourceTree = "<group>"; };
+		915CADAC20EB406B007E2EDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91C0F5E920EE74EF00527E70 /* VINavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VINavigationBar.h; sourceTree = "<group>"; };
+		91C0F5EA20EE74EF00527E70 /* _VINavigationControllerPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _VINavigationControllerPalette.h; sourceTree = "<group>"; };
+		91C0F5EB20EE74EF00527E70 /* _VINavigationInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _VINavigationInteractiveTransition.h; sourceTree = "<group>"; };
+		91C0F5EC20EE74EF00527E70 /* UIApplication+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Private.h"; sourceTree = "<group>"; };
+		91C0F5ED20EE74EF00527E70 /* VINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VINavigationController.m; sourceTree = "<group>"; };
+		91C0F5EE20EE74EF00527E70 /* _VINavigationParallaxTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _VINavigationParallaxTransition.m; sourceTree = "<group>"; };
+		91C0F5EF20EE74EF00527E70 /* DISNavigationControllerCommons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DISNavigationControllerCommons.h; sourceTree = "<group>"; };
+		91C0F5F020EE74EF00527E70 /* _VIBarPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _VIBarPanGestureRecognizer.m; sourceTree = "<group>"; };
+		91C0F5F120EE74EF00527E70 /* _VIAnimationCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _VIAnimationCoordinator.m; sourceTree = "<group>"; };
+		91C0F5F220EE74EF00527E70 /* UIView+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Private.m"; sourceTree = "<group>"; };
+		91C0F5F320EE74EF00527E70 /* UIViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Private.m"; sourceTree = "<group>"; };
+		91C0F5F420EE74EF00527E70 /* UINavigationBar+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Private.m"; sourceTree = "<group>"; };
+		91C0F5F520EE74EF00527E70 /* _VIBarTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _VIBarTapGestureRecognizer.h; sourceTree = "<group>"; };
+		91C0F5F620EE74EF00527E70 /* VINavigationTransitionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VINavigationTransitionView.m; sourceTree = "<group>"; };
+		91C0F5F720EE74EF00527E70 /* VINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VINavigationController.h; sourceTree = "<group>"; };
+		91C0F5F820EE74EF00527E70 /* UIApplication+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Private.m"; sourceTree = "<group>"; };
+		91C0F5F920EE74EF00527E70 /* _VINavigationInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _VINavigationInteractiveTransition.m; sourceTree = "<group>"; };
+		91C0F5FA20EE74EF00527E70 /* _VINavigationControllerPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _VINavigationControllerPalette.m; sourceTree = "<group>"; };
+		91C0F5FB20EE74EF00527E70 /* VINavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VINavigationBar.m; sourceTree = "<group>"; };
+		91C0F5FC20EE74EF00527E70 /* _VIAnimationCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _VIAnimationCoordinator.h; sourceTree = "<group>"; };
+		91C0F5FD20EE74EF00527E70 /* _VIBarPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _VIBarPanGestureRecognizer.h; sourceTree = "<group>"; };
+		91C0F5FE20EE74EF00527E70 /* _VINavigationParallaxTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _VINavigationParallaxTransition.h; sourceTree = "<group>"; };
+		91C0F5FF20EE74EF00527E70 /* _VIBarTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _VIBarTapGestureRecognizer.m; sourceTree = "<group>"; };
+		91C0F60020EE74EF00527E70 /* UINavigationBar+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Private.h"; sourceTree = "<group>"; };
+		91C0F60120EE74EF00527E70 /* UIView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Private.h"; sourceTree = "<group>"; };
+		91C0F60220EE74EF00527E70 /* UIViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Private.h"; sourceTree = "<group>"; };
+		91C0F60320EE74EF00527E70 /* VINavigationTransitionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VINavigationTransitionView.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		915CAD8020EB406A007E2EDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915CAD9820EB406B007E2EDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915CADA320EB406B007E2EDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		915CAD7A20EB406A007E2EDD = {
+			isa = PBXGroup;
+			children = (
+				915CAD8520EB406A007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3 */,
+				915CAD9E20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3Tests */,
+				915CADA920EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3UITests */,
+				915CAD8420EB406A007E2EDD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		915CAD8420EB406A007E2EDD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				915CAD8320EB406A007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3.app */,
+				915CAD9B20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3Tests.xctest */,
+				915CADA620EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		915CAD8520EB406A007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3 */ = {
+			isa = PBXGroup;
+			children = (
+				91C0F5E820EE74EF00527E70 /* Classes */,
+				915CAD8620EB406A007E2EDD /* AppDelegate.h */,
+				915CAD8720EB406A007E2EDD /* AppDelegate.m */,
+				915CAD8920EB406A007E2EDD /* ViewController.h */,
+				915CAD8A20EB406A007E2EDD /* ViewController.m */,
+				915CAD8C20EB406A007E2EDD /* Main.storyboard */,
+				915CAD8F20EB406B007E2EDD /* Assets.xcassets */,
+				915CAD9120EB406B007E2EDD /* LaunchScreen.storyboard */,
+				915CAD9420EB406B007E2EDD /* Info.plist */,
+				915CAD9520EB406B007E2EDD /* main.m */,
+			);
+			path = DIS_NAVIGATION_CONTROLLER_8_3;
+			sourceTree = "<group>";
+		};
+		915CAD9E20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				915CAD9F20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3Tests.m */,
+				915CADA120EB406B007E2EDD /* Info.plist */,
+			);
+			path = DIS_NAVIGATION_CONTROLLER_8_3Tests;
+			sourceTree = "<group>";
+		};
+		915CADA920EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3UITests */ = {
+			isa = PBXGroup;
+			children = (
+				915CADAA20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3UITests.m */,
+				915CADAC20EB406B007E2EDD /* Info.plist */,
+			);
+			path = DIS_NAVIGATION_CONTROLLER_8_3UITests;
+			sourceTree = "<group>";
+		};
+		91C0F5E820EE74EF00527E70 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				91C0F5E920EE74EF00527E70 /* VINavigationBar.h */,
+				91C0F5EA20EE74EF00527E70 /* _VINavigationControllerPalette.h */,
+				91C0F5EB20EE74EF00527E70 /* _VINavigationInteractiveTransition.h */,
+				91C0F5EC20EE74EF00527E70 /* UIApplication+Private.h */,
+				91C0F5ED20EE74EF00527E70 /* VINavigationController.m */,
+				91C0F5EE20EE74EF00527E70 /* _VINavigationParallaxTransition.m */,
+				91C0F5EF20EE74EF00527E70 /* DISNavigationControllerCommons.h */,
+				91C0F5F020EE74EF00527E70 /* _VIBarPanGestureRecognizer.m */,
+				91C0F5F120EE74EF00527E70 /* _VIAnimationCoordinator.m */,
+				91C0F5F220EE74EF00527E70 /* UIView+Private.m */,
+				91C0F5F320EE74EF00527E70 /* UIViewController+Private.m */,
+				91C0F5F420EE74EF00527E70 /* UINavigationBar+Private.m */,
+				91C0F5F520EE74EF00527E70 /* _VIBarTapGestureRecognizer.h */,
+				91C0F5F620EE74EF00527E70 /* VINavigationTransitionView.m */,
+				91C0F5F720EE74EF00527E70 /* VINavigationController.h */,
+				91C0F5F820EE74EF00527E70 /* UIApplication+Private.m */,
+				91C0F5F920EE74EF00527E70 /* _VINavigationInteractiveTransition.m */,
+				91C0F5FA20EE74EF00527E70 /* _VINavigationControllerPalette.m */,
+				91C0F5FB20EE74EF00527E70 /* VINavigationBar.m */,
+				91C0F5FC20EE74EF00527E70 /* _VIAnimationCoordinator.h */,
+				91C0F5FD20EE74EF00527E70 /* _VIBarPanGestureRecognizer.h */,
+				91C0F5FE20EE74EF00527E70 /* _VINavigationParallaxTransition.h */,
+				91C0F5FF20EE74EF00527E70 /* _VIBarTapGestureRecognizer.m */,
+				91C0F60020EE74EF00527E70 /* UINavigationBar+Private.h */,
+				91C0F60120EE74EF00527E70 /* UIView+Private.h */,
+				91C0F60220EE74EF00527E70 /* UIViewController+Private.h */,
+				91C0F60320EE74EF00527E70 /* VINavigationTransitionView.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		915CAD8220EB406A007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 915CADAF20EB406B007E2EDD /* Build configuration list for PBXNativeTarget "DIS_NAVIGATION_CONTROLLER_8_3" */;
+			buildPhases = (
+				915CAD7F20EB406A007E2EDD /* Sources */,
+				915CAD8020EB406A007E2EDD /* Frameworks */,
+				915CAD8120EB406A007E2EDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DIS_NAVIGATION_CONTROLLER_8_3;
+			productName = DIS_NAVIGATION_CONTROLLER_8_3;
+			productReference = 915CAD8320EB406A007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3.app */;
+			productType = "com.apple.product-type.application";
+		};
+		915CAD9A20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 915CADB220EB406B007E2EDD /* Build configuration list for PBXNativeTarget "DIS_NAVIGATION_CONTROLLER_8_3Tests" */;
+			buildPhases = (
+				915CAD9720EB406B007E2EDD /* Sources */,
+				915CAD9820EB406B007E2EDD /* Frameworks */,
+				915CAD9920EB406B007E2EDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				915CAD9D20EB406B007E2EDD /* PBXTargetDependency */,
+			);
+			name = DIS_NAVIGATION_CONTROLLER_8_3Tests;
+			productName = DIS_NAVIGATION_CONTROLLER_8_3Tests;
+			productReference = 915CAD9B20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		915CADA520EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 915CADB520EB406B007E2EDD /* Build configuration list for PBXNativeTarget "DIS_NAVIGATION_CONTROLLER_8_3UITests" */;
+			buildPhases = (
+				915CADA220EB406B007E2EDD /* Sources */,
+				915CADA320EB406B007E2EDD /* Frameworks */,
+				915CADA420EB406B007E2EDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				915CADA820EB406B007E2EDD /* PBXTargetDependency */,
+			);
+			name = DIS_NAVIGATION_CONTROLLER_8_3UITests;
+			productName = DIS_NAVIGATION_CONTROLLER_8_3UITests;
+			productReference = 915CADA620EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		915CAD7B20EB406A007E2EDD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = renjinkui;
+				TargetAttributes = {
+					915CAD8220EB406A007E2EDD = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					915CAD9A20EB406B007E2EDD = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 915CAD8220EB406A007E2EDD;
+					};
+					915CADA520EB406B007E2EDD = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 915CAD8220EB406A007E2EDD;
+					};
+				};
+			};
+			buildConfigurationList = 915CAD7E20EB406A007E2EDD /* Build configuration list for PBXProject "DIS_NAVIGATION_CONTROLLER_8_3" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 915CAD7A20EB406A007E2EDD;
+			productRefGroup = 915CAD8420EB406A007E2EDD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				915CAD8220EB406A007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3 */,
+				915CAD9A20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3Tests */,
+				915CADA520EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		915CAD8120EB406A007E2EDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				915CAD9320EB406B007E2EDD /* LaunchScreen.storyboard in Resources */,
+				915CAD9020EB406B007E2EDD /* Assets.xcassets in Resources */,
+				915CAD8E20EB406A007E2EDD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915CAD9920EB406B007E2EDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915CADA420EB406B007E2EDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		915CAD7F20EB406A007E2EDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				915CAD8B20EB406A007E2EDD /* ViewController.m in Sources */,
+				915CAD9620EB406B007E2EDD /* main.m in Sources */,
+				91C0F60820EE74EF00527E70 /* UIView+Private.m in Sources */,
+				91C0F60620EE74EF00527E70 /* _VIBarPanGestureRecognizer.m in Sources */,
+				91C0F60920EE74EF00527E70 /* UIViewController+Private.m in Sources */,
+				91C0F60A20EE74EF00527E70 /* UINavigationBar+Private.m in Sources */,
+				91C0F61020EE74EF00527E70 /* _VIBarTapGestureRecognizer.m in Sources */,
+				91C0F60420EE74EF00527E70 /* VINavigationController.m in Sources */,
+				91C0F60720EE74EF00527E70 /* _VIAnimationCoordinator.m in Sources */,
+				915CAD8820EB406A007E2EDD /* AppDelegate.m in Sources */,
+				91C0F60520EE74EF00527E70 /* _VINavigationParallaxTransition.m in Sources */,
+				91C0F60E20EE74EF00527E70 /* _VINavigationControllerPalette.m in Sources */,
+				91C0F60C20EE74EF00527E70 /* UIApplication+Private.m in Sources */,
+				91C0F60F20EE74EF00527E70 /* VINavigationBar.m in Sources */,
+				91C0F60D20EE74EF00527E70 /* _VINavigationInteractiveTransition.m in Sources */,
+				91C0F60B20EE74EF00527E70 /* VINavigationTransitionView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915CAD9720EB406B007E2EDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				915CADA020EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915CADA220EB406B007E2EDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				915CADAB20EB406B007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		915CAD9D20EB406B007E2EDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 915CAD8220EB406A007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3 */;
+			targetProxy = 915CAD9C20EB406B007E2EDD /* PBXContainerItemProxy */;
+		};
+		915CADA820EB406B007E2EDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 915CAD8220EB406A007E2EDD /* DIS_NAVIGATION_CONTROLLER_8_3 */;
+			targetProxy = 915CADA720EB406B007E2EDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		915CAD8C20EB406A007E2EDD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				915CAD8D20EB406A007E2EDD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		915CAD9120EB406B007E2EDD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				915CAD9220EB406B007E2EDD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		915CADAD20EB406B007E2EDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		915CADAE20EB406B007E2EDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		915CADB020EB406B007E2EDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VGPVNX6MXZ;
+				INFOPLIST_FILE = DIS_NAVIGATION_CONTROLLER_8_3/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.discode.DIS-NAVIGATION-CONTROLLER-8-3";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Debug;
+		};
+		915CADB120EB406B007E2EDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VGPVNX6MXZ;
+				INFOPLIST_FILE = DIS_NAVIGATION_CONTROLLER_8_3/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.discode.DIS-NAVIGATION-CONTROLLER-8-3";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Release;
+		};
+		915CADB320EB406B007E2EDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VGPVNX6MXZ;
+				INFOPLIST_FILE = DIS_NAVIGATION_CONTROLLER_8_3Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.discode.DIS-NAVIGATION-CONTROLLER-8-3Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DIS_NAVIGATION_CONTROLLER_8_3.app/DIS_NAVIGATION_CONTROLLER_8_3";
+			};
+			name = Debug;
+		};
+		915CADB420EB406B007E2EDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VGPVNX6MXZ;
+				INFOPLIST_FILE = DIS_NAVIGATION_CONTROLLER_8_3Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.discode.DIS-NAVIGATION-CONTROLLER-8-3Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DIS_NAVIGATION_CONTROLLER_8_3.app/DIS_NAVIGATION_CONTROLLER_8_3";
+			};
+			name = Release;
+		};
+		915CADB620EB406B007E2EDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VGPVNX6MXZ;
+				INFOPLIST_FILE = DIS_NAVIGATION_CONTROLLER_8_3UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.discode.DIS-NAVIGATION-CONTROLLER-8-3UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DIS_NAVIGATION_CONTROLLER_8_3;
+			};
+			name = Debug;
+		};
+		915CADB720EB406B007E2EDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VGPVNX6MXZ;
+				INFOPLIST_FILE = DIS_NAVIGATION_CONTROLLER_8_3UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.discode.DIS-NAVIGATION-CONTROLLER-8-3UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DIS_NAVIGATION_CONTROLLER_8_3;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		915CAD7E20EB406A007E2EDD /* Build configuration list for PBXProject "DIS_NAVIGATION_CONTROLLER_8_3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				915CADAD20EB406B007E2EDD /* Debug */,
+				915CADAE20EB406B007E2EDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		915CADAF20EB406B007E2EDD /* Build configuration list for PBXNativeTarget "DIS_NAVIGATION_CONTROLLER_8_3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				915CADB020EB406B007E2EDD /* Debug */,
+				915CADB120EB406B007E2EDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		915CADB220EB406B007E2EDD /* Build configuration list for PBXNativeTarget "DIS_NAVIGATION_CONTROLLER_8_3Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				915CADB320EB406B007E2EDD /* Debug */,
+				915CADB420EB406B007E2EDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		915CADB520EB406B007E2EDD /* Build configuration list for PBXNativeTarget "DIS_NAVIGATION_CONTROLLER_8_3UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				915CADB620EB406B007E2EDD /* Debug */,
+				915CADB720EB406B007E2EDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 915CAD7B20EB406A007E2EDD /* Project object */;
+}
