@@ -7,8 +7,8 @@
 DerivedData/
 
 # Exclude user-specific XCode files
-YeeCall-App.xcodeproj/project.xcworkspace/
-YeeCall-App.xcworkspace/xcshareddata/
+*.xcodeproj/project.xcworkspace/
+*.xcworkspace/xcshareddata/
 xcuserdata/
 build/
 *.xccheckout

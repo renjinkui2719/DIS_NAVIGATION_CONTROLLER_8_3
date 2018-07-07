@@ -11,7 +11,7 @@
 #import <objc/runtime.h>
 
 extern UIApplication *UIApp;
-extern BOOL _UIApplicationUsesLegacyUI();
+extern BOOL _UIApplicationUsesLegacyUI(void);
 
 extern uint32_t _UIApplicationLinkedOnVersion;
 BOOL __UIApplicationLinkedOnOrAfter(uint32_t version);
@@ -24,6 +24,7 @@ static inline BOOL _UIApplicationLinkedOnVersionCheck(uint32_t version) {
         return _UIApplicationLinkedOnVersion >= version;
     }
 }
+
 
 #define ADDRESS_OF_INSTANCE_IVAR(ivar) \
 ((void *)\
