@@ -8,10 +8,12 @@
 
 #import "VINavigationItem.h"
 #import "DISNavigationControllerCommons.h"
+#import "UIBarButtonItem+Private.h"
 
 @implementation VINavigationItem
 
 #pragma mark - A
+
 #pragma mark - B
 #pragma mark - C
 
@@ -96,13 +98,87 @@
 #pragma mark - L
 #pragma mark - M
 #pragma mark - N
+- (VINavigationBar *)navigationBar {
+    return _navigationBar;
+}
 #pragma mark - O
 #pragma mark - P
 #pragma mark - Q
 #pragma mark - R
 #pragma mark - S
+
+- (void)setRightBarButtonItem:(UIBarButtonItem *)item {
+    [self setRightBarButtonItem:item animated:NO];
+}
+
+- (void)setRightBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated {
+    if ([item isSystemItem] &&
+        ([item systemItem] == UIBarButtonSystemItemFlexibleSpace || [item systemItem] == UIBarButtonSystemItemFixedSpace)
+        ) {
+        [NSException raise:NSInvalidArgumentException format:@"Fixed and flexible space items not allowed as individual navigation bar button item. Please use the rightBarButtonItems (that's plural) property."];
+    }
+    //loc_2506D108
+    [self setObject:item forLeftRightKeyPath:@"rightBarButtonItem" animated:animated];
+}
+
+- (void)setRightBarButtonItems:(NSArray<UIBarButtonItem *> *)items {
+    [self setRightBarButtonItems:items animated:NO];
+}
+
+- (void)setRightBarButtonItems:(NSArray<UIBarButtonItem *> *)items animated:(BOOL)animated {
+    if (!_rightBarButtonItems || !items || ![_rightBarButtonItems isEqualToArray:items]) {
+        //loc_2512B0A6
+        [self setObject:items forLeftRightKeyPath:@"_rightBarButtonItems" animated:animated];
+    }
+}
+
+- (void)setObject:(id)object forLeftRightKeyPath:(NSString *)keyPath animated:(BOOL)animated {
+    if ([self valueForKey:@""] != object) {
+        [self _updateBarItemOwnersTo:nil];
+        [self setValue:object forKey:keyPath];
+        static NSDictionary *viewNamesMap = nil;
+        if (!viewNamesMap){
+            NSArray *names = [NSArray arrayWithObjects:@"_leftBarButtonItem",@"_rightBarButtonItem",@"_customLeftView",@"_customRightView",@"_customLeftViews",@"_customRightViews", nil];
+            NSArray *keys = [NSArray arrayWithObjects:@"_customLeftView", @"_customRightView", @"_leftBarButtonItem",@"_rightBarButtonItem",@"_leftBarButtonItems",@"_rightBarButtonItems", nil];
+            viewNamesMap = [NSDictionary dictionaryWithObjects:names forKeys:keys];
+        }
+        //loc_2506CF58
+        NSString *viewName = viewNamesMap[keyPath];
+        NSAssert(viewName, @"No alternate key path found for key path \"%@\"",keyPath);
+        //loc_2506CFE8
+        [self setValue:nil forKey:viewName];
+        [self _updateBarItemOwnersTo:self];
+        [self updateNavigationBarButtonsAnimated:animated];
+    }
+}
+
+
 #pragma mark - T
 #pragma mark - U
+- (void)_updateBarItemOwnersTo:(VINavigationItem *)owner {
+    for (UIBarButtonItem *item in _leftBarButtonItems) {
+        [item _setOwningNavigationItem:owner];
+    }
+    for (UIBarButtonItem *item in _rightBarButtonItems) {
+        [item _setOwningNavigationItem:owner];
+    }
+}
+
+- (void)updateNavigationBarButtonsAnimated:(BOOL)animated {
+    if (!animated) {
+        [self.navigationBar disableAnimation];
+    }
+    //loc_2506D584
+    if (self.navigationBar.topItem == self) {
+        NSArray *customLeftViews = [self _customLeftViews];
+        NSArray *customRightViews = [self _customRightViews];
+        [self.navigationBar _setLeftViews:customLeftViews rightViews:customRightViews];
+    }
+    //loc_2506D5F2
+    if (!animated) {
+        [self.navigationBar enableAnimation];
+    }
+}
 #pragma mark - V
 
 @end

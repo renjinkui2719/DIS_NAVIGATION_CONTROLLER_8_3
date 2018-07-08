@@ -67,6 +67,7 @@
 		915CADAC20EB406B007E2EDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		918AA5D220F05757005BDEDC /* VINavigationItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VINavigationItem.h; sourceTree = "<group>"; };
 		918AA5D320F05757005BDEDC /* VINavigationItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VINavigationItem.m; sourceTree = "<group>"; };
+		91915A4220F1A4B20032D138 /* UIBarButtonItem+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Private.h"; sourceTree = "<group>"; };
 		91C0F5E920EE74EF00527E70 /* VINavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VINavigationBar.h; sourceTree = "<group>"; };
 		91C0F5EA20EE74EF00527E70 /* _VINavigationControllerPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _VINavigationControllerPalette.h; sourceTree = "<group>"; };
 		91C0F5EB20EE74EF00527E70 /* _VINavigationInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _VINavigationInteractiveTransition.h; sourceTree = "<group>"; };
@@ -208,6 +209,7 @@
 				91C0F60120EE74EF00527E70 /* UIView+Private.h */,
 				91C0F60220EE74EF00527E70 /* UIViewController+Private.h */,
 				91C0F60320EE74EF00527E70 /* VINavigationTransitionView.h */,
+				91915A4220F1A4B20032D138 /* UIBarButtonItem+Private.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
