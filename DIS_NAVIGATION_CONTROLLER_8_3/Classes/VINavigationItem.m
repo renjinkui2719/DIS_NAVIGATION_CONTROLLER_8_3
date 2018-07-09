@@ -105,7 +105,148 @@
 #pragma mark - P
 #pragma mark - Q
 #pragma mark - R
+
 #pragma mark - S
+
+- (void)setBackBarButtonItem:(UIBarButtonItem *)item {
+    if (_backBarButtonItem != item) {
+        id backButtonViewAppearanceStorage = nil;
+        if ([_backButtonView respondsToSelector:@selector(_appearanceStorage)]) {
+            backButtonViewAppearanceStorage = [_backButtonView _appearanceStorage];
+        }
+        //loc_252739EE
+        [_backBarButtonItem release];
+        _backBarButtonItem = [item retain];
+        if (_navigationBar) {
+            if (_backBarButtonItem) {
+                if (!_backButtonView || backButtonViewAppearanceStorage) {
+                    //loc_25273AAC
+                    if (backButtonViewAppearanceStorage) {
+                        [self _removeBackButtonView];
+                    }
+                    _backButtonView = [self backButtonView];
+                    //loc_25273AD6
+                }
+                else {
+                    id barButtonAppearanceStorage = [[_navigationBar _appearanceStorage] _barButtonAppearanceStorage];
+                    [_backButtonView _applyBarButtonAppearanceStorage:barButtonAppearanceStorage withTaggedSelectors:nil];
+                    id itemAppearanceStorage = [item _appearanceStorage];
+                    id taggedSelectors = objc_getAssociatedObject(appearanceStorage, _UIAppearanceAssociatedObjectTaggingKey);
+                    [_backButtonView _applyBarButtonAppearanceStorage:itemAppearanceStorage withTaggedSelectors:taggedSelectors];
+                    //loc_25273AD6
+                }
+            }
+            else {
+                //loc_25273A98
+                [self _removeBackButtonView];
+                //loc_25273AD6
+            }
+            //loc_25273AD6
+            [_backButtonView setNeedsDisplay];
+            UIView *defaultTitleView = [self _defaultTitleView];
+            [defaultTitleView setNeedsDisplay];
+            [defaultTitleView.superview setNeedsLayout];
+            [_backButtonView.superview setNeedsLayout];
+        }
+    }
+}
+
+- (void)setBackButtonTitle:(NSString *)title {
+    [self _setBackButtonTitle:title lineBreakMode:NSLineBreakByTruncatingTail];
+}
+
+- (void)setContext:(id)context {
+    if(_context != context) {
+        [_context release];
+        _context = [context retain];
+    }
+}
+
+- (void)setCustomLeftItem:(UIBarButtonItem *)item {
+    [self setLeftBarButtonItem:item];
+}
+
+- (void)setCustomLeftItem:(UIBarButtonItem *)item animated:(BOOL)animated {
+    [self setLeftBarButtonItem:item animated:animated];
+}
+
+- (void)setCustomLeftView:(UIView *)view {
+    [self setCustomLeftView:view animated:NO];
+}
+
+- (void)setCustomLeftView:(UIView *)view animated:(BOOL)animated {
+    [self setObject:view forLeftRightKeyPath:@"_customLeftView" animated:animated];
+}
+
+- (void)setCustomRightItem:(UIBarButtonItem *)item {
+    [self setRightBarButtonItem:item];
+}
+
+- (void)setCustomRightItem:(UIBarButtonItem *)item animated:(BOOL)animated {
+    [self setRightBarButtonItem:item animated:animated];
+}
+
+- (void)setCustomRightView:(UIView *)view {
+    [self setCustomRightView:view animated:NO];
+}
+
+- (void)setCustomRightView:(UIView *)view animated:(BOOL)animated {
+    [self setObject:view forLeftRightKeyPath:@"_customRightView" animated:animated];
+}
+
+- (void)setCustomTitleView:(UIView *)view {
+    [self setTitleView:view];
+}
+
+- (void)setHidesBackButton:(BOOL)hidesBackButton {
+    [self setHidesBackButton:hidesBackButton animated:NO];
+}
+
+- (void)setHidesBackButton:(BOOL)hidesBackButton animated:(BOOL)animated {
+    if (self.hidesBackButton != hidesBackButton) {
+        _hidesBackButton = hidesBackButton;
+        if (self.navigationBar.topItem == self) {
+            //loc_251150E8
+            [self.navigationBar showBackButton:!hidesBackButton animated:animated];
+        }
+    }
+}
+
+- (void)setLeftItemsSupplementBackButton:(BOOL)leftItemsSupplementBackButton {
+    if (_leftItemsSupplementBackButton != leftItemsSupplementBackButton) {
+        _leftItemsSupplementBackButton = leftItemsSupplementBackButton;
+        [self updateNavigationBarButtonsAnimated:NO];
+    }
+}
+
+- (void)setNavigationBar:(VINavigationBar *)navigationBar {
+    _navigationBar = navigationBar;
+}
+
+- (void)setLeftBarButtonItem:(UIBarButtonItem *)item {
+    [self setLeftBarButtonItem:item animated:NO];
+}
+
+- (void)setLeftBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated {
+    if ([item isSystemItem] &&
+        ([item systemItem] == UIBarButtonSystemItemFlexibleSpace || [item systemItem] == UIBarButtonSystemItemFixedSpace)
+        ) {
+        [NSException raise:NSInvalidArgumentException format:@"Fixed and flexible space items not allowed as individual navigation bar button item. Please use the leftBarButtonItems (that's plural) property."];
+    }
+    //loc_2506D108
+    [self setObject:item forLeftRightKeyPath:@"_leftBarButtonItem" animated:animated];
+}
+
+- (void)setLeftBarButtonItems:(NSArray<UIBarButtonItem *> *)items {
+    [self setLeftBarButtonItems:items animated:NO];
+}
+
+- (void)setLeftBarButtonItems:(NSArray<UIBarButtonItem *> *)items animated:(BOOL)animated {
+    if (!_leftBarButtonItems || !items || ![_leftBarButtonItems isEqualToArray:items]) {
+        //loc_2512B0A6
+        [self setObject:items forLeftRightKeyPath:@"_leftBarButtonItems" animated:animated];
+    }
+}
 
 - (void)setRightBarButtonItem:(UIBarButtonItem *)item {
     [self setRightBarButtonItem:item animated:NO];
@@ -118,7 +259,7 @@
         [NSException raise:NSInvalidArgumentException format:@"Fixed and flexible space items not allowed as individual navigation bar button item. Please use the rightBarButtonItems (that's plural) property."];
     }
     //loc_2506D108
-    [self setObject:item forLeftRightKeyPath:@"rightBarButtonItem" animated:animated];
+    [self setObject:item forLeftRightKeyPath:@"_rightBarButtonItem" animated:animated];
 }
 
 - (void)setRightBarButtonItems:(NSArray<UIBarButtonItem *> *)items {
@@ -152,6 +293,308 @@
     }
 }
 
+- (void)setPrompt:(NSString *)prompt {
+    if (_prompt != prompt) {
+        _prompt = [prompt retain];
+        [_navigationBar updatePrompt];
+    }
+}
+
+- (void)setTag:(int)tag {
+    _tag = tag;
+}
+
+- (void)setTitle:(NSString *)title {
+    if (title && !_UIApplicationUsesLegacyUI()) {
+        title = [title stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    }
+    //loc_2505A578
+    if (_title != title && ![_title isEqualToString:title]) {
+        [_title release];
+        _title = [title copy];
+        //loc_2505A5D2
+        [self _addDefaultTitleViewToNavigationBarIfNecessary];
+        UIView *defaultTitleView = [self _defaultTitleView];
+        [defaultTitleView _resetTitleSize];
+        [self _setPendingTitle:nil];
+        [_backButtonView setNeedsDisplay];
+        [defaultTitleView setNeedsDisplay];
+        [defaultTitleView.superview setNeedsLayout];
+        [_backButtonView.superview setNeedsLayout];
+        if (_navigationBar.state != 0 && _navigationBar.topItem == self) {
+            //loc_2505A6BE
+            [_navigationBar.backItem.backButtonView _setAbbreviatedTitleIndex:NSIntegerMax];
+        }
+    }
+}
+
+- (void)setTitleView:(UIView *)titleView {
+    if (_titleView != titleView) {
+        //loc_250F7D68
+        [self _setIdealCustomTitleWidth:titleView.frame.size.width];
+        if (!_titleView) {
+            [_defaultTitleView removeFromSuperview];
+            //loc_250F7DA6
+        }
+        //loc_250F7DA6
+        [_titleView release];
+        _titleView = titleView.retain;
+        if (self.navigationBar.topItem == self) {
+            [_navigationBar _updateTitleView];
+        }
+    }
+}
+
+- (void)set_customLeftView:(UIView *)customLeftView {
+    [self _setCustomLeftView:customLeftView];
+}
+
+- (void)set_customLeftViews:(NSArray *)customLeftViews {
+    [self _setCustomLeftViews:customLeftViews];
+}
+
+- (void)set_customRightView:(UIView *)customLeftView {
+    [self _setCustomRightView:customLeftView];
+}
+
+- (void)set_customRightViews:(NSArray *)customLeftViews {
+    [self _setCustomRightViews:customLeftViews];
+}
+
+- (void)set_leftBarButtonItem:(UIBarButtonItem *)leftBarButtonItem {
+    [self _setLeftBarButtonItem:leftBarButtonItem];
+}
+
+- (void)set_leftBarButtonItems:(NSArray *)leftBarButtonItems {
+    [self _setLeftBarButtonItems:leftBarButtonItems];
+}
+
+- (void)set_rightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem {
+    [self _setRightBarButtonItem:rightBarButtonItem];
+}
+
+- (void)set_rightBarButtonItems:(NSArray *)rightBarButtonItems {
+    [self _setRightBarButtonItems:rightBarButtonItems];
+}
+
+- (void)set_titleViewWidthForAnimations:(CGFloat)width {
+    __titleViewWidthForAnimations = width;
+}
+
+- (void)_setAbbreviatedBackButtonTitles:(NSArray *)abbreviatedBackButtonTitles {
+    if (!abbreviatedBackButtonTitles & !_abbreviatedBackButtonTitles) {
+        return;
+    }
+    if ([_abbreviatedBackButtonTitles isEqualToArray:abbreviatedBackButtonTitles]) {
+        return;
+    }
+    //loc_2505B6AE
+    [_abbreviatedBackButtonTitles release];
+    _abbreviatedBackButtonTitles = _abbreviatedBackButtonTitles.copy;
+    if (_backButtonView && [_backButtonView _abbreviatedTitleIndex] != NSIntegerMax) {
+        if (_navigationBar.state == 0) {
+            [_backButtonView _setAbbreviatedTitleIndex:NSIntegerMax];
+            if (_navigationBar &&
+                _navigationBar == _backButtonView.superview &&
+                !_backButtonView.isHidden &&
+                _backButtonView.alpha != 0.0
+                ) {
+                [_navigationBar setNeedsLayout];
+            }
+        }
+    }
+}
+
+- (void)_setBackButtonPressed:(BOOL)backButtonPressed {
+    [[self existingBackButtonView] setPressed:backButtonPressed];
+}
+
+- (void)_setBackButtonTitle:(NSString *)backButtonTitle lineBreakMode:(NSLineBreakMode)lineBreakMode {
+    if (_backButtonTitle != backButtonTitle && ![_backButtonTitle isEqualToString:backButtonTitle]) {
+        [_backButtonTitle release];
+        _backButtonTitle = backButtonTitle.copy;
+        //loc_2505A864
+        if (_navigationBar) {
+            if (_backButtonTitle && _backButtonTitle.length != 0) {
+                _backButtonView = [self backButtonView];
+                //loc_2505A8C8
+            }
+            else {
+                //loc_2505A8B6
+                [self _removeBackButtonView];
+                //loc_2505A8C8
+            }
+            //loc_2505A8C8
+            [_backButtonView _setLineBreakMode:lineBreakMode];
+            [_backButtonView _resetTitleSize];
+            [_backButtonView setNeedsDisplay];
+            UIView *defaultTitleView = [self _defaultTitleView];
+            [defaultTitleView setNeedsDisplay];
+            [defaultTitleView.superview setNeedsLayout];
+            [_backButtonView.superview setNeedsLayout];
+        }
+    }
+}
+
+- (void)_setBarStyleIndependent:(BOOL)barStyleIndependent {
+    _barStyleIndependent = barStyleIndependent;
+}
+
+- (void)_setCustomLeftRightView:(UIView *)leftRightView left:(BOOL)left {
+    UIView *existView = (left ? [self _customLeftViewCreating:NO] : [self _customRightViewCreating:NO]);
+    if (!leftRightView || existView != leftRightView) {
+        //loc_2506D3C0
+        UIView *createdView = nil;
+        if (leftRightView) {
+            createdView = (left ? [self _customLeftViewCreating:YES] : [self _customRightViewCreating:YES]);
+            if (createdView) {
+                createdView = [createdView mutableCopy];
+            }
+            else {
+                createdView = [[NSMutableArray alloc] init];
+            }
+            //loc_2506D422
+            _updateLeftOrRightItemOrViewList(createdView, leftRightView);
+            //loc_2506D430
+        }
+        //loc_2506D430
+        if (left) {
+            [self _setCustomLeftViews:createdView];
+        }
+        else {
+            [self _setCustomRightViews:createdView];
+        }
+        [createdView release];
+    }
+}
+
+- (void)_setCustomLeftView:(UIView *)leftView {
+    [self _setCustomLeftRightView:leftView left:YES];
+}
+
+- (void)_setCustomLeftViews:(NSArray *)leftViews {
+    if (leftViews) {
+        if (_customLeftViews) {
+            if ([_customLeftViews isEqualToArray:leftViews]) {
+                if (_customLeftViews) {
+                    return;
+                }
+                //loc_250D6008
+            }
+            //loc_250D6008
+        }
+        //loc_250D6008
+        [_customLeftViews release];
+        _customLeftViews = leftViews.copy;
+    }
+    else {
+        //loc_250D5FF8
+        if (_customLeftViews) {
+            //loc_250D6008
+            [_customLeftViews release];
+            _customLeftViews = leftViews.copy;
+        }
+    }
+}
+
+- (void)_setCustomRightView:(UIView *)rightView {
+    [self _setCustomLeftRightView:rightView left:NO];
+}
+
+- (void)_setCustomRightViews:(NSArray *)rightViews {
+    if (rightViews) {
+        if (_customRightViews) {
+            if ([_customRightViews isEqualToArray:rightViews]) {
+                if (_customRightViews) {
+                    return;
+                }
+                //loc_2506D518
+            }
+            //loc_2506D518
+        }
+        //loc_2506D518
+        [_customRightViews release];
+        _customRightViews = rightViews.copy;
+    }
+    else {
+        //loc_2506D508
+        if (_customRightViews) {
+            //loc_2506D518
+            [_customRightViews release];
+            _customRightViews = rightViews.copy;
+        }
+    }
+}
+
+- (void)_setFontScaleAdjustment:(CGFloat)fontScaleAdjustment {
+    if (_fontScaleAdjustment != fontScaleAdjustment) {
+        _fontScaleAdjustment = fontScaleAdjustment;
+        
+        void (^block)(NSArray *barButtonItems) = ^{
+            //___44__UINavigationItem__setFontScaleAdjustment___block_invoke
+            for (UIBarButtonItem *item in barButtonItems) {
+                if (!item.isCustomViewItem) {
+                    UIView *itemView = item.view;
+                    if([itemView titleForState:0].length) {
+                        [itemView _setFontScaleAdjustment:fontScaleAdjustment];
+                        [itemView _updateStyle];
+                        [itemView sizeToFit];
+                    }
+                }
+            }
+        };
+        block(_leftBarButtonItems);
+        block(_rightBarButtonItems);
+    }
+}
+
+- (void)_setIdealCustomTitleWidth:(CGFloat)idealCustomTitleWidth {
+    __idealCustomTitleWidth = idealCustomTitleWidth;
+}
+
+- (void)_setIndependentBackgroundImage:(UIImage *)backgroundImage shadowImage:(UIImage *)shadowImage forBarMetrics:(int)barMetrics {
+    NSAssert(!shadowImage || backgroundImage, @"No custom shadow for the navigation item without a custom background");
+    //loc_252744E0
+    NSAssert(_navigationBar.topItem != self, @"Don't set the independent background image of a navigation item while it's visible");
+    //loc_25274570
+    NSAssert(barMetrics == 0 || !shadowImage, @"We use the same shadow for all bar metrics, so use nil for the shadow when not specifying UIBarMetricsDefault");
+    //loc_252745EA
+    NSArray *backgroundImages = [self _backgroundImages];
+    if (backgroundImage) {
+        NSArray *arr1 = [NSArray arrayWithObjects:backgroundImage, shadowImage, nil];
+        [backgroundImages _setObject:arr1 forKey:@(barMetrics)]
+    }
+    else {
+        //loc_25274664
+        [self removeObjectForKey:@(barMetrics)];
+    }
+}
+
+- (void)_setIndependentBarStyle:(int)independentBarStyle {
+    [self _setBarStyleIndependent:YES];
+    _independentBarStyle = independentBarStyle;
+}
+
+- (void)_setLeftBarButtonItem:(UIBarButtonItem *)leftBarButtonItem {
+    if (leftBarButtonItem != [self _leftBarButtonItem]) {
+        if (leftBarButtonItem || _leftBarButtonItems.count > 1) {
+            //loc_250D5EAE
+            NSMutableArray *leftBarButtonItems = (_leftBarButtonItems ? _leftBarButtonItems.mutableCopy : [[NSMutableArray alloc] init]);
+            [_leftBarButtonItems release];
+            _updateLeftOrRightItemOrViewList(leftBarButtonItems, leftBarButtonItem);
+            _leftBarButtonItems = leftBarButtonItems.copy;
+            [leftBarButtonItems release];
+        }
+        else {
+            [_leftBarButtonItems release];
+            _leftBarButtonItems = nil;
+        }
+    }
+}
+
+- (void)_setLeftBarButtonItems:(NSArray *)leftBarButtonItems {
+    
+}
 
 #pragma mark - T
 #pragma mark - U

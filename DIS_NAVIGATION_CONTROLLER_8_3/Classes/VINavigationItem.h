@@ -48,13 +48,13 @@
 @property (retain, nonatomic) UIBarButtonItem *backBarButtonItem;
 @property (retain, nonatomic) UIView *titleView;
 @property (copy, nonatomic) NSString *prompt;
-@property (nonatomic) char hidesBackButton;
+@property (nonatomic) BOOL hidesBackButton;
 @property (copy, nonatomic) NSArray *leftBarButtonItems;
 @property (copy, nonatomic) NSArray *rightBarButtonItems;
-@property (nonatomic) char leftItemsSupplementBackButton;
+@property (nonatomic) BOOL leftItemsSupplementBackButton;
 @property (retain, nonatomic) UIBarButtonItem *leftBarButtonItem;
 @property (retain, nonatomic) UIBarButtonItem *rightBarButtonItem;
-@property (getter=_isBarStyleIndependent, setter=_setBarStyleIndependent:, nonatomic) char _barStyleIndependent;
+@property (getter=_isBarStyleIndependent, setter=_setBarStyleIndependent:, nonatomic) BOOL _barStyleIndependent;
 @property (setter=_setIndependentBarStyle:, nonatomic) int _independentBarStyle;
 @property (setter=_setLeftFlexibleSpaceCount:, nonatomic) unsigned int _leftFlexibleSpaceCount;
 @property (setter=_setRightFlexibleSpaceCount:, nonatomic) unsigned int _rightFlexibleSpaceCount;
