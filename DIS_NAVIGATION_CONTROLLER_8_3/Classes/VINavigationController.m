@@ -8,83 +8,15 @@
 
 #import "VINavigationController.h"
 
-
 @interface VINavigationController ()
 
 @end
 
-//- (void)setItems:(nullable NSArray<UINavigationItem *> *)items animated:(BOOL)animated;
-void (*originSetItems)(id self,SEL _cmd, NSArray<UINavigationItem *> *items, BOOL animated);
-static void mySetItems(id self,SEL _cmd,NSArray<UINavigationItem *> *items, BOOL animated) {
-    originSetItems(self,_cmd,items, animated);
-}
-
-void (*origin_setItems)(id self,SEL _cmd, NSArray<UINavigationItem *> *items, long transition,BOOL reset);
-static void my_setItems(id self,SEL _cmd,NSArray<UINavigationItem *> *items, long transition,BOOL reset) {
-    origin_setItems(self,_cmd,items, transition, reset);
-}
-
-
-void (*originpushNavigationItem)(id self,SEL _cmd, UINavigationItem *item, BOOL animated);
-static void mypushNavigationItem(id self,SEL _cmd,UINavigationItem *item, BOOL animated) {
-    originpushNavigationItem(self,_cmd,item, animated);
-}
-
-void (*origin_pushNavigationItem)(id self,SEL _cmd, UINavigationItem *item, long transition);
-static void my_pushNavigationItem(UINavigationBar * self,SEL _cmd,UINavigationItem *item, long transition) {
-    NSLog(@"");
-    origin_pushNavigationItem(self,_cmd,item, transition);
-    NSLog(@"");
-//    [YCDispatch runOnMainQueue:^{
-//        UINavigationBar *navBar = self;
-//        NSLog(@"");
-//    } after:0.5];
-}
-
-UINavigationItem * (*origin_popNavigationItemWithTransition)(id self,SEL _cmd, long animated);
-UINavigationItem * my_popNavigationItemWithTransition(id self,SEL _cmd,long animated) {
-    return origin_popNavigationItemWithTransition(self,_cmd, animated);
-}
-
-UINavigationItem * (*originpopNavigationItemAnimated)(id self,SEL _cmd, BOOL animated);
-UINavigationItem * mypopNavigationItemAnimated(id self,SEL _cmd,BOOL animated) {
-    return originpopNavigationItemAnimated(self,_cmd, animated);
-}
-
-
-
 @implementation VINavigationController
-
-+ (void)load {
-//    Class cls = UINavigationBar.class;
-//    //originSetItems = (void (*)(NSArray<UINavigationItem *> *items, BOOL animated))class_getMethodImplementation(cls, @selector(setItems:animated:));
-//    originSetItems = (void (*)(id self,SEL _cmd,NSArray<UINavigationItem *> *items, BOOL animated))class_replaceMethod(cls, @selector(setItems:animated:), mySetItems, NULL);
-//
-//    origin_setItems = (void (*)(id self,SEL _cmd,NSArray<UINavigationItem *> *items, BOOL animated))class_replaceMethod(cls, @selector(_setItems:transition:reset:), origin_setItems, NULL);
-//
-//    originpushNavigationItem = (void (*)(id self,SEL _cmd, UINavigationItem *item, BOOL animated))class_replaceMethod(cls, @selector(pushNavigationItem:animated:), mypushNavigationItem, NULL);
-//
-//    origin_pushNavigationItem = (void (*)(id self,SEL _cmd, UINavigationItem *item, long trans))class_replaceMethod(cls, @selector(_pushNavigationItem:transition:), my_pushNavigationItem, NULL);
-//
-//    originpopNavigationItemAnimated = (UINavigationItem * (*)(id self,SEL _cmd, BOOL animated))class_replaceMethod(cls, @selector(popNavigationItemAnimated:), mypopNavigationItemAnimated, NULL);
-//
-//    origin_popNavigationItemWithTransition = (UINavigationItem * (*)(id self,SEL _cmd, BOOL animated))class_replaceMethod(cls, @selector(_popNavigationItemWithTransition:), my_popNavigationItemWithTransition, NULL);
-//
-//
-//    NSLog(@"");
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    UINavigationBar *bar = _navigationBar;
-//    [bar addObserver:self forKeyPath:@"_items" options:NSKeyValueObservingOptionNew context:NULL];
-//    NSLog(@"");
-    // Do any additional setup after loading the view.
 }
-
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-//    NSLog(@"");
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -93,134 +25,134 @@ UINavigationItem * mypopNavigationItemAnimated(id self,SEL _cmd,BOOL animated) {
 
 #pragma mark - A
 
-//- (BOOL)_allowNestedNavigationControllers {
-//    return _navigationControllerFlags->allowNestedNavigationControllers;
-//}
-//
-//- (BOOL)_allowsAutorotation {
-//    BOOL allow = [super _allowsAutorotation];
-//    UIViewController *topViewController = [self topViewController];
-//    if (topViewController) {
-//        allow = allow && [topViewController _allowsAutorotation];
-//    }
-//    return allow;
-//}
-//
-//- (BOOL)_animationParametersForHidingNavigationBar:(BOOL)hidingNavigationBar lastOperation:(int)lastOperation edge:(unsigned int *)edge duration:(NSTimeInterval *)duration {
-//    if (_UIApplicationLinkedOnVersionCheck(0x30001)) {
-//        BOOL shouldCrossFadeNavigationBar = [self _shouldCrossFadeNavigationBar];
-//        if (lastOperation == 2) {
-//            if (edge) {
-//                if (shouldCrossFadeNavigationBar) {
-//                    *edge = 0x0F;
-//                }
-//                else {
-//                    if (hidingNavigationBar) {
-//                        *edge = 0x08;
-//                    }
-//                    else {
-//                        *edge = 0x02;
-//                    }
-//                }
-//            }
-//            //loc_251DAE30
-//            if (duration) {
-//                *duration = [self durationForTransition:2];
-//            }
-//        }
-//        else if (lastOperation == 1) {
-//            if (edge) {
-//                if (shouldCrossFadeNavigationBar) {
-//                    *edge = 0x0F;
-//                }
-//                else {
-//                    if (hidingNavigationBar) {
-//                        *edge = 0x02;
-//                    }
-//                    else {
-//                        *edge = 0x08;
-//                    }
-//                }
-//            }
-//            //loc_251DAE6E
-//            if (duration) {
-//                *duration = [self durationForTransition:1];
-//            }
-//        }
-//        return YES;
-//    }
-//    return NO;
-//}
+- (BOOL)_allowNestedNavigationControllers {
+    return _navigationControllerFlags->allowNestedNavigationControllers;
+}
+
+- (BOOL)_allowsAutorotation {
+    BOOL allow = [super _allowsAutorotation];
+    UIViewController *topViewController = [self topViewController];
+    if (topViewController) {
+        allow = allow && [topViewController _allowsAutorotation];
+    }
+    return allow;
+}
+
+- (BOOL)_animationParametersForHidingNavigationBar:(BOOL)hidingNavigationBar lastOperation:(int)lastOperation edge:(unsigned int *)edge duration:(NSTimeInterval *)duration {
+    if (_UIApplicationLinkedOnVersionCheck(0x30001)) {
+        BOOL shouldCrossFadeNavigationBar = [self _shouldCrossFadeNavigationBar];
+        if (lastOperation == 2) {
+            if (edge) {
+                if (shouldCrossFadeNavigationBar) {
+                    *edge = 0x0F;
+                }
+                else {
+                    if (hidingNavigationBar) {
+                        *edge = 0x08;
+                    }
+                    else {
+                        *edge = 0x02;
+                    }
+                }
+            }
+            //loc_251DAE30
+            if (duration) {
+                *duration = [self durationForTransition:2];
+            }
+        }
+        else if (lastOperation == 1) {
+            if (edge) {
+                if (shouldCrossFadeNavigationBar) {
+                    *edge = 0x0F;
+                }
+                else {
+                    if (hidingNavigationBar) {
+                        *edge = 0x02;
+                    }
+                    else {
+                        *edge = 0x08;
+                    }
+                }
+            }
+            //loc_251DAE6E
+            if (duration) {
+                *duration = [self durationForTransition:1];
+            }
+        }
+        return YES;
+    }
+    return NO;
+}
 
 #pragma mark - B
-//- (NSString *)_backdropBarGroupName {
-//    return [NSString stringWithFormat:@"<%@:%p> Backdrop Group", NSStringFromClass(self.class), self];
-//}
-//
-//- (NSString *)_backdropGroupName {
-//    if (!__backdropGroupName) {
-//        NSString *name = [self _barBackdropGroupNameForAncestorViewController:NO];
-//        if (!name) {
-//            name = [self _backdropBarGroupName];
-//        }
-//        [self _setBackdropGroupName:name];
-//    }
-//    return __backdropGroupName;
-//}
-//
-//- (NSString *)_barBackdropGroupNameForAncestorViewController:(BOOL)ancestorViewController {
-//    return nil;
-//}
-//
-//- (BOOL)_barAnimationWasCancelled {
-//    return __barAnimationWasCancelled;
-//}
-//
-//- (_VIAnimationCoordinator *)_barInteractiveAnimationCoordinator {
-//    return __barInteractiveAnimationCoordinator;
-//}
-//
-//- (_VIBarPanGestureRecognizer *)_barSwipeHideGesture {
-//    return __barSwipeHideGesture;
-//}
-//
-//- (_VIBarTapGestureRecognizer *)_barTapHideGesture {
-//    return __barTapHideGesture;
-//}
+- (NSString *)_backdropBarGroupName {
+    return [NSString stringWithFormat:@"<%@:%p> Backdrop Group", NSStringFromClass(self.class), self];
+}
 
-//- (CGRect)_boundsForPalette:(id)platte size:(CGSize)size {
-//    int age = [platte boundaryEdge];
-//    if (age == 0) {
-//        return CGRectZero;
-//    }
-//}
+- (NSString *)_backdropGroupName {
+    if (!__backdropGroupName) {
+        NSString *name = [self _barBackdropGroupNameForAncestorViewController:NO];
+        if (!name) {
+            name = [self _backdropBarGroupName];
+        }
+        [self _setBackdropGroupName:name];
+    }
+    return __backdropGroupName;
+}
 
-//- (_VINavigationInteractiveTransition *)_builtinInteractionController {
-//    return __cachedInteractionController;
-//}
-//
-//- (_VINavigationParallaxTransition *)_builtinTransitionController {
-//    return __cachedTransitionController;
-//}
+- (NSString *)_barBackdropGroupNameForAncestorViewController:(BOOL)ancestorViewController {
+    return nil;
+}
 
-//- (CGFloat)_builtinTransitionGap {
-//    return _builtinTransitionGap;
-//}
-//
-//- (int)_builtinTransitionStyle {
-//    return _builtinTransitionStyle;
-//}
+- (BOOL)_barAnimationWasCancelled {
+    return __barAnimationWasCancelled;
+}
+
+- (_VIAnimationCoordinator *)_barInteractiveAnimationCoordinator {
+    return __barInteractiveAnimationCoordinator;
+}
+
+- (_VIBarPanGestureRecognizer *)_barSwipeHideGesture {
+    return __barSwipeHideGesture;
+}
+
+- (_VIBarTapGestureRecognizer *)_barTapHideGesture {
+    return __barTapHideGesture;
+}
+
+- (CGRect)_boundsForPalette:(id)platte size:(CGSize)size {
+    int age = [platte boundaryEdge];
+    if (age == 0) {
+        return CGRectZero;
+    }
+}
+
+- (_VINavigationInteractiveTransition *)_builtinInteractionController {
+    return __cachedInteractionController;
+}
+
+- (_VINavigationParallaxTransition *)_builtinTransitionController {
+    return __cachedTransitionController;
+}
+
+- (CGFloat)_builtinTransitionGap {
+    return _builtinTransitionGap;
+}
+
+- (int)_builtinTransitionStyle {
+    return _builtinTransitionStyle;
+}
 
 #pragma mark - C
 
-//- (_VINavigationInteractiveTransition *)_cachedInteractionController {
-//    return __cachedInteractionController;
-//}
-//
-//- (_VINavigationParallaxTransition *)_cachedTransitionController {
-//    return __cachedTransitionController;
-//}
-/*
+- (_VINavigationInteractiveTransition *)_cachedInteractionController {
+    return __cachedInteractionController;
+}
+
+- (_VINavigationParallaxTransition *)_cachedTransitionController {
+    return __cachedTransitionController;
+}
+
 - (void)_cancelInteractiveTransition:(CGFloat)transition transitionContext:(id)context {
     CGFloat completionVelocity = [context _completionVelocity];
     BOOL navbarIsAppearingInteractively = [self _navbarIsAppearingInteractively];
@@ -248,34 +180,33 @@ UINavigationItem * mypopNavigationItemAnimated(id self,SEL _cmd,BOOL animated) {
         [self _updateInteractiveBarTransition:toolBar withUUID:toolbarAnimationId percent:transition isFinished:YES didComplete:NO completionSpeed:ABS(completionVelocity) completionCurve:completionCurve];
     }
 }
-*/
-//- (void)_clearLastOperation {
-//    //BFC.W           _navigationControllerFlags, #7, #0xD
-//    _navigationControllerFlags->lastOperation = 0;
-//    _navigationControllerFlags->lastOperationAnimated = 0;
-//    _navigationControllerFlags->deferredTransition = 0;
-//    //BIC.W           _navigationControllerFlags + 4, _navigationControllerFlags + 4, #0x8000000
-//    _navigationControllerFlags->disappearingViewControllerIsBeingRemoved = 0;
-//    [self setDisappearingViewController:nil];
-//}
-//
-//- (BOOL)_clipUnderlapWhileTransitioning {
-//    return _navigationControllerFlags->clipUnderlapWhileTransitioning;
-//}
 
-//- (void)_computeAndApplyScrollContentInsetDeltaForViewController:(UIViewController *)viewController {
-//
-//}
+- (void)_clearLastOperation {
+    //BFC.W           _navigationControllerFlags, #7, #0xD
+    _navigationControllerFlags->lastOperation = 0;
+    _navigationControllerFlags->lastOperationAnimated = 0;
+    _navigationControllerFlags->deferredTransition = 0;
+    //BIC.W           _navigationControllerFlags + 4, _navigationControllerFlags + 4, #0x8000000
+    _navigationControllerFlags->disappearingViewControllerIsBeingRemoved = 0;
+    [self setDisappearingViewController:nil];
+}
+
+- (BOOL)_clipUnderlapWhileTransitioning {
+    return _navigationControllerFlags->clipUnderlapWhileTransitioning;
+}
+
+- (void)_computeAndApplyScrollContentInsetDeltaForViewController:(UIViewController *)viewController {
+
+}
 
 #pragma mark - D
-//- (NSTimeInterval)durationForTransition:(uint32_t)transation {
-//    return 0.0
-//}
+- (NSTimeInterval)durationForTransition:(uint32_t)transation {
+    return 0.0
+}
 
 #pragma mark - H
 
 #pragma mark - I
-#if 0
 - (id)initWithCoder:(NSCoder *)coder {
     if (self = [super initWithCoder:coder]) {
         NSUInteger childViewControllersCount = [self childViewControllersCount];
@@ -328,92 +259,91 @@ UINavigationItem * mypopNavigationItemAnimated(id self,SEL _cmd,BOOL animated) {
     UIPanGestureRecognizer *gestureRecognizer = [__cachedInteractionController screenEdgePanGestureRecognizer];
     return gestureRecognizer.retain.autorelease;
 }
-#endif
 
-//- (BOOL)isAlreadyPoppingNavItem {
-//    return _navigationControllerFlags->isAlreadyPoppingNavigationItem;
-//}
-//
-//- (BOOL)isBuiltinTransition {
-//    return _navigationControllerFlags->isBuiltinTransition;
-//}
-//
-//- (BOOL)isCustomTransition {
-//    if (_navigationControllerFlags->isCustomTransition) {
-//        return _navigationControllerFlags->isTransitioning;
-//    }
-//    return NO;
-//}
-//
-//- (BOOL)isExpanded {
-//    return NO;
-//}
-//
-//- (BOOL)isInteractiveTransition {
-//    return _interactiveTransition;
-//}
-//
-//- (BOOL)isModalInPopover {
-//    NSMutableArray *mutableChildViewControllers = [self mutableChildViewControllers];
-//    for (UIViewController *viewController in mutableChildViewControllers) {
-//        if (viewController.isModalInPopover) {
-//            return YES;
-//        }
-//    }
-//    return [super isModalInPopover];
-//}
-//
-//- (BOOL)isNavigationBarHidden {
-//    if ([self _isNestedNavigationController] && [self _outermostNavigationController] != self) {
-//        return [[self _outermostNavigationController] isNavigationBarHidden];
-//    }
-//    else {
-//        //loc_25049FE2
-//        return _navigationControllerFlags->isNavigationBarHidden;
-//    }
-//}
+- (BOOL)isAlreadyPoppingNavItem {
+    return _navigationControllerFlags->isAlreadyPoppingNavigationItem;
+}
 
-//- (BOOL)isShown {
-//    return [self _hasAppeared];
-//}
-//
-//- (BOOL)isToolbarHidden {
-//    return !_navigationControllerFlags->isToolbarShown;
-//}
+- (BOOL)isBuiltinTransition {
+    return _navigationControllerFlags->isBuiltinTransition;
+}
+
+- (BOOL)isCustomTransition {
+    if (_navigationControllerFlags->isCustomTransition) {
+        return _navigationControllerFlags->isTransitioning;
+    }
+    return NO;
+}
+
+- (BOOL)isExpanded {
+    return NO;
+}
+
+- (BOOL)isInteractiveTransition {
+    return _interactiveTransition;
+}
+
+- (BOOL)isModalInPopover {
+    NSMutableArray *mutableChildViewControllers = [self mutableChildViewControllers];
+    for (UIViewController *viewController in mutableChildViewControllers) {
+        if (viewController.isModalInPopover) {
+            return YES;
+        }
+    }
+    return [super isModalInPopover];
+}
+
+- (BOOL)isNavigationBarHidden {
+    if ([self _isNestedNavigationController] && [self _outermostNavigationController] != self) {
+        return [[self _outermostNavigationController] isNavigationBarHidden];
+    }
+    else {
+        //loc_25049FE2
+        return _navigationControllerFlags->isNavigationBarHidden;
+    }
+}
+
+- (BOOL)isShown {
+    return [self _hasAppeared];
+}
+
+- (BOOL)isToolbarHidden {
+    return !_navigationControllerFlags->isToolbarShown;
+}
 
 #pragma mark - M
 
 #pragma mark - N
 
 #pragma mark - O
-//- (id)_outermostNavigationController {
-//    if ([self _isNestedNavigationController]) {
-//        if (self.navigationController) {
-//            return [self.navigationController _outermostNavigationController];
-//        }
-//        else {
-//            return self;
-//        }
-//    }
-//    else {
-//        return self;
-//    }
-//}
+- (id)_outermostNavigationController {
+    if ([self _isNestedNavigationController]) {
+        if (self.navigationController) {
+            return [self.navigationController _outermostNavigationController];
+        }
+        else {
+            return self;
+        }
+    }
+    else {
+        return self;
+    }
+}
 
 #pragma mark - P
-//- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-//    id transitionCoordinator = [self _transitionCoordinator];
-//    if (transitionCoordinator) {
-//    }
-//    else {
-//        //loc_25046362
-//    }
-//}
-//
-//- (void)pushViewController:(UIViewController *)viewController transition:(int)transition {
-//
-//}
-//
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    id transitionCoordinator = [self _transitionCoordinator];
+    if (transitionCoordinator) {
+    }
+    else {
+        //loc_25046362
+    }
+}
+
+- (void)pushViewController:(UIViewController *)viewController transition:(int)transition {
+
+}
+
 - (void)pushViewController:(UIViewController *)viewController transition:(int)transition forceImmediate:(BOOL)forceImmediate {
     if (viewController) {
         if ([viewController isKindOfClass:UISplitViewController.class]) {
@@ -658,15 +588,14 @@ UINavigationItem * mypopNavigationItemAnimated(id self,SEL _cmd,BOOL animated) {
 }
 
 #pragma mark - S
-//- (BOOL)_shouldCrossFadeNavigationBar {
-//    return NO;
-//}
-//
-//- (void)_setBackdropGroupName:(NSString *)name {
-//
-//}
-//
-#if 1
+- (BOOL)_shouldCrossFadeNavigationBar {
+    return NO;
+}
+
+- (void)_setBackdropGroupName:(NSString *)name {
+
+}
+
 - (void)_setNavigationBarHidden:(BOOL)hidden edge:(unsigned long long)edge duration:(double)duration {
     printf("VINAV hidden:%d, edge:%d, duration:%f, --1\n",hidden,edge,duration );
     if (hidden != _navigationControllerFlags->isNavigationBarHidden) {
@@ -813,8 +742,7 @@ UINavigationItem * mypopNavigationItemAnimated(id self,SEL _cmd,BOOL animated) {
         }
     }
 }
-#endif
-#if 1
+
 - (void)_setNavigationBarHidden:(BOOL)hidden edgeIfNotNavigating:(unsigned long long)edge duration:(double)duration {
     if (hidden != _navigationControllerFlags->isNavigationBarHidden) {
         BOOL R4 = NO;
@@ -876,7 +804,7 @@ UINavigationItem * mypopNavigationItemAnimated(id self,SEL _cmd,BOOL animated) {
         }
     }
 }
-#endif
+
 - (void)_setNavigationBarHidesCompletelyOffscreen:(BOOL)hidden {
     /*R0 = (flag[+4]) BIC 0x800
     R0 = R0 ORR (hidden << 11)
@@ -884,57 +812,57 @@ UINavigationItem * mypopNavigationItemAnimated(id self,SEL _cmd,BOOL animated) {
     _navigationControllerFlags->navigationBarHidesCompletelyOffscreen = hidden;
 }
 
-//- (void)setNavigationBar:(UINavigationBar *)navigationBar {
-//    if (navigationBar != _navigationBar) {
-//        NSMutableArray *childViewControllers = [self mutableChildViewControllers];
-//        [_navigationBar setLocked:NO];
-//        [_navigationBar setDelegate:nil];
-//        [_navigationBar removeFromSuperview];
-//        [_navigationBar _setBackdropViewLayerGroupName:nil];
-//        [_navigationBar release];
-//
-//        //_navigationBar = [navigationBar retain];
-//        SET_INSTANCE_IVAR(UINavigationBar *, _navigationBar, [navigationBar retain]);
-//        UIView *view = _view;
-//        if (view.window) {
-//            NSString *backdropGroupName = [self _backdropGroupName];
-//            [navigationBar _setBackdropViewLayerGroupName:backdropGroupName];
-//        }
-//        //loc_2504963E
-//        [self _setVisualAltitudeForBar:_navigationBar];
-//        CGSize navigationBarSize = [UINavigationBar defaultSize];
-//        //loc_25049692
-//        CGFloat width = 0;
-//        if (_containerView) {
-//            CGRect containerViewFrame = _containerView.frame;
-//            width = containerViewFrame.size.width;
-//            navigationBarSize.width = containerViewFrame.size.width;
-//        }
-//        else {
-//            width = navigationBarSize.width;
-//        }
-//        //loc_250496C8
-//        _navigationBar.frame = CGRectMake(0, 0, width, navigationBarSize.height);
-//        _navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//        _navigationBar.delegate = self;
-//        [self.view addSubView: _navigationBar];
-//
-//        if (childViewControllers.count) {
-//            NSMutableArray *navigationItems = [[NSMutableArray alloc] init];
-//            for (UIViewController *viewController in childViewControllers) {
-//                [navigationItems addObject:viewController.navigationItem];
-//            }
-//            //loc_25049800
-//            [_navigationBar setItems:navigationItems];
-//            [navigationItems release];
-//        }
-//
-//        //loc_25049826
-//        [_navigationBar setLocked:YES];
-//        [self _positionNavigationBarHidden:_navigationControllerFlags->isNavigationBarHidden];
-//        [_navigationBar setHidden:_navigationControllerFlags->isNavigationBarHidden];
-//    }
-//}
+- (void)setNavigationBar:(UINavigationBar *)navigationBar {
+    if (navigationBar != _navigationBar) {
+        NSMutableArray *childViewControllers = [self mutableChildViewControllers];
+        [_navigationBar setLocked:NO];
+        [_navigationBar setDelegate:nil];
+        [_navigationBar removeFromSuperview];
+        [_navigationBar _setBackdropViewLayerGroupName:nil];
+        [_navigationBar release];
+
+        //_navigationBar = [navigationBar retain];
+        SET_INSTANCE_IVAR(UINavigationBar *, _navigationBar, [navigationBar retain]);
+        UIView *view = _view;
+        if (view.window) {
+            NSString *backdropGroupName = [self _backdropGroupName];
+            [navigationBar _setBackdropViewLayerGroupName:backdropGroupName];
+        }
+        //loc_2504963E
+        [self _setVisualAltitudeForBar:_navigationBar];
+        CGSize navigationBarSize = [UINavigationBar defaultSize];
+        //loc_25049692
+        CGFloat width = 0;
+        if (_containerView) {
+            CGRect containerViewFrame = _containerView.frame;
+            width = containerViewFrame.size.width;
+            navigationBarSize.width = containerViewFrame.size.width;
+        }
+        else {
+            width = navigationBarSize.width;
+        }
+        //loc_250496C8
+        _navigationBar.frame = CGRectMake(0, 0, width, navigationBarSize.height);
+        _navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        _navigationBar.delegate = self;
+        [self.view addSubView: _navigationBar];
+
+        if (childViewControllers.count) {
+            NSMutableArray *navigationItems = [[NSMutableArray alloc] init];
+            for (UIViewController *viewController in childViewControllers) {
+                [navigationItems addObject:viewController.navigationItem];
+            }
+            //loc_25049800
+            [_navigationBar setItems:navigationItems];
+            [navigationItems release];
+        }
+
+        //loc_25049826
+        [_navigationBar setLocked:YES];
+        [self _positionNavigationBarHidden:_navigationControllerFlags->isNavigationBarHidden];
+        [_navigationBar setHidden:_navigationControllerFlags->isNavigationBarHidden];
+    }
+}
 
 - (void)setNavigationBarClass:(Class)class {
     if (!class) {
@@ -998,22 +926,23 @@ UINavigationItem * mypopNavigationItemAnimated(id self,SEL _cmd,BOOL animated) {
         }
     }
 }
+
 #pragma mark - T
-//- (id)tabBarItem {
-//    return [super tabBarItem];
-//}
-//
-//- (id)toolbar {
-//    return [super toolbar];
-//}
-//
-//- (void)traitCollectionDidChange:(id)arg {
-//    [super traitCollectionDidChange:arg];
-//}
-//
-//- (UIViewController *)topViewController {
-//    NSMutableArray *childViewControllers = [self mutableChildViewControllers];
-//    return [[childViewControllers.lastObject retain] autorelease];
-//}
+- (id)tabBarItem {
+    return [super tabBarItem];
+}
+
+- (id)toolbar {
+    return [super toolbar];
+}
+
+- (void)traitCollectionDidChange:(id)arg {
+    [super traitCollectionDidChange:arg];
+}
+
+- (UIViewController *)topViewController {
+    NSMutableArray *childViewControllers = [self mutableChildViewControllers];
+    return [[childViewControllers.lastObject retain] autorelease];
+}
 
 @end

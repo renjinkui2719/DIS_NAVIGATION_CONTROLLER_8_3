@@ -13,7 +13,9 @@
 @implementation VINavigationItem
 
 #pragma mark - A
-
+- (id)_abbreviatedBackButtonTitles {
+    
+}
 #pragma mark - B
 #pragma mark - C
 
@@ -278,7 +280,7 @@
         [self _updateBarItemOwnersTo:nil];
         [self setValue:object forKey:keyPath];
         static NSDictionary *viewNamesMap = nil;
-        if (!viewNamesMap){
+        if (!viewNamesMap) {
             NSArray *names = [NSArray arrayWithObjects:@"_leftBarButtonItem",@"_rightBarButtonItem",@"_customLeftView",@"_customRightView",@"_customLeftViews",@"_customRightViews", nil];
             NSArray *keys = [NSArray arrayWithObjects:@"_customLeftView", @"_customRightView", @"_leftBarButtonItem",@"_rightBarButtonItem",@"_leftBarButtonItems",@"_rightBarButtonItems", nil];
             viewNamesMap = [NSDictionary dictionaryWithObjects:names forKeys:keys];
@@ -593,7 +595,135 @@
 }
 
 - (void)_setLeftBarButtonItems:(NSArray *)leftBarButtonItems {
-    
+    if (!_leftBarButtonItems || !leftBarButtonItems ||
+        [_leftBarButtonItems isEqualToArray:leftBarButtonItems]
+        ) {
+        //loc_2512CD8C
+        BOOL R1 = _leftBarButtonItems == nil;
+        BOOL R2 = leftBarButtonItems != nil;
+        //TEQ.W           R1, R2
+        if (R1 !=  R2) {
+            return;
+        }
+        //loc_2512CDA2
+    }
+    //loc_2512CDA2
+    [_leftBarButtonItems release];
+    _leftBarButtonItems = leftBarButtonItems.copy;
+}
+
+- (void)_setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem {
+    if (rightBarButtonItem != [self _rightBarButtonItem]) {
+        if (rightBarButtonItem || _rightBarButtonItems.count > 1) {
+            //loc_250D5EAE
+            NSMutableArray *rightBarButtonItems = (_rightBarButtonItems ? _rightBarButtonItems.mutableCopy : [[NSMutableArray alloc] init]);
+            [_rightBarButtonItem release];
+            _updateLeftOrRightItemOrViewList(rightBarButtonItems, rightBarButtonItem);
+            _rightBarButtonItem = rightBarButtonItem.copy;
+            [rightBarButtonItem release];
+        }
+        else {
+            [_rightBarButtonItem release];
+            _rightBarButtonItem = nil;
+        }
+    }
+}
+
+- (void)_setRightBarButtonItems:(NSArray *)rightBarButtonItems {
+    if (!_rightBarButtonItems || !rightBarButtonItems ||
+        [_rightBarButtonItems isEqualToArray:rightBarButtonItems]
+        ) {
+        //loc_2512CD8C
+        BOOL R1 = _rightBarButtonItems == nil;
+        BOOL R2 = rightBarButtonItems != nil;
+        //TEQ.W           R1, R2
+        if (R1 !=  R2) {
+            return;
+        }
+        //loc_2512CDA2
+    }
+    //loc_2512CDA2
+    [_rightBarButtonItems release];
+    _rightBarButtonItems = rightBarButtonItems.copy;
+}
+
+- (void)_setLeftFlexibleSpaceCount:(NSUInteger)leftFlexibleSpaceCount {
+    _leftFlexibleSpaceCount = leftFlexibleSpaceCount;
+}
+
+- (void)_setRightFlexibleSpaceCount:(NSUInteger)rightFlexibleSpaceCount {
+    _rightFlexibleSpaceCount = rightFlexibleSpaceCount;
+}
+
+- (void)_setOwningNavigationBar:(VINavigationBar *)owningNavigationBar {
+    __owningNavigationBar = owningNavigationBar;
+}
+
+- (void)_setTitle:(NSString *)title animated:(BOOL)animated {
+    [self _setTitle:title animated:animated matchBarButtonItemAnimationDuration:NO];
+}
+
+- (void)_setTitle:(NSString *)title animated:(BOOL)animated matchBarButtonItemAnimationDuration:(BOOL)matchBarButtonItemAnimationDuration {
+    if (animated) {
+        if (title == title || [title isEqualToString:_title]) {
+            return;
+        }
+        if (_navigationBar.state == 0) {
+            //loc_250639DA
+            [self _freezeCurrentTitleView];
+            [_title release];
+            _title = title.copy;
+            //loc_25063A18
+            [self _setPendingTitle:nil];
+            [self _addDefaultTitleViewToNavigationBarIfNecessary];
+            UIView * defaultTitleView = [self _defaultTitleView];
+            [defaultTitleView _resetTitleSize];
+            [_backButtonView setNeedsDisplay];
+            [defaultTitleView setNeedsDisplay];
+            [defaultTitleView.superview setNeedsLayout];
+            [_backButtonView.superview setNeedsLayout];
+            if (_UIApplicationUsesLegacyUI()) {
+                [UIView beginAnimations:nil context:nil];
+                NSTimeInterval duration = double(0X3FC6666666666666);
+                if (matchBarButtonItemAnimationDuration) {
+                    duration = double(0X3FD6666666666666);
+                }
+                [UIView setAnimationDuration:duration];
+                [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+                [UIView setAnimationDelegate:self];
+                [UIView setAnimationDidStopSelector:@selector(_setTitleAnimationDidStop:finished:context:)];
+                [_frozenTitleView setAlpha:0];
+                [defaultTitleView setAlpha:float(0x3F800000)];
+                [UIView commitAnimations];
+            }
+            else {
+                //loc_25063BA2
+                NSTimeInterval duration = double(0X3FC6666666666666);
+                if (matchBarButtonItemAnimationDuration) {
+                    duration = double(0X3FD6666666666666);
+                }
+                [UIView _animateWithDuration:duration delay:0 options:0x60000 factory:_navigationBar animations:^{
+                    //___75__UINavigationItem__setTitle_animated_matchBarButtonItemAnimationDuration___block_invoke
+                    [_frozenTitleView setAlpha:0];
+                    [defaultTitleView setAlpha:float(0x3F800000)];
+                } completion:^(BOOL finished){
+                    //___75__UINavigationItem__setTitle_animated_matchBarButtonItemAnimationDuration___block_invoke282
+                    [self _setTitleAnimationDidStop:nil finished:@(finished) context:@(animated)];
+                }];
+            }
+        }
+        else {
+            [self _setPendingTitle:title];
+        }
+    }
+    else {
+        //loc_250639BE
+        [self setTitle:title];
+    }
+}
+
+- (void)_setTitleAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(id)context {
+    [self _cleanupFrozenTitleView];
 }
 
 #pragma mark - T
