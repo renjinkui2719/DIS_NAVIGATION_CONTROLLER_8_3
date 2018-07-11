@@ -22,13 +22,14 @@
 		91C0F60720EE74EF00527E70 /* _VIAnimationCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F120EE74EF00527E70 /* _VIAnimationCoordinator.m */; };
 		91C0F60820EE74EF00527E70 /* UIView+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F220EE74EF00527E70 /* UIView+Private.m */; };
 		91C0F60920EE74EF00527E70 /* UIViewController+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F320EE74EF00527E70 /* UIViewController+Private.m */; };
-		91C0F60A20EE74EF00527E70 /* UINavigationBar+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F420EE74EF00527E70 /* UINavigationBar+Private.m */; };
 		91C0F60B20EE74EF00527E70 /* VINavigationTransitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F620EE74EF00527E70 /* VINavigationTransitionView.m */; };
 		91C0F60C20EE74EF00527E70 /* UIApplication+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F820EE74EF00527E70 /* UIApplication+Private.m */; };
 		91C0F60D20EE74EF00527E70 /* _VINavigationInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5F920EE74EF00527E70 /* _VINavigationInteractiveTransition.m */; };
 		91C0F60E20EE74EF00527E70 /* _VINavigationControllerPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5FA20EE74EF00527E70 /* _VINavigationControllerPalette.m */; };
 		91C0F60F20EE74EF00527E70 /* VINavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5FB20EE74EF00527E70 /* VINavigationBar.m */; };
 		91C0F61020EE74EF00527E70 /* _VIBarTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0F5FF20EE74EF00527E70 /* _VIBarTapGestureRecognizer.m */; };
+		91FC881320F4D920006A637E /* VINavigationItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FC881220F4D920006A637E /* VINavigationItemView.m */; };
+		91FC881620F4D9D9006A637E /* VINavigationItemButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FC881520F4D9D9006A637E /* VINavigationItemButtonView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +80,6 @@
 		91C0F5F120EE74EF00527E70 /* _VIAnimationCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _VIAnimationCoordinator.m; sourceTree = "<group>"; };
 		91C0F5F220EE74EF00527E70 /* UIView+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Private.m"; sourceTree = "<group>"; };
 		91C0F5F320EE74EF00527E70 /* UIViewController+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Private.m"; sourceTree = "<group>"; };
-		91C0F5F420EE74EF00527E70 /* UINavigationBar+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Private.m"; sourceTree = "<group>"; };
 		91C0F5F520EE74EF00527E70 /* _VIBarTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _VIBarTapGestureRecognizer.h; sourceTree = "<group>"; };
 		91C0F5F620EE74EF00527E70 /* VINavigationTransitionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VINavigationTransitionView.m; sourceTree = "<group>"; };
 		91C0F5F720EE74EF00527E70 /* VINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VINavigationController.h; sourceTree = "<group>"; };
@@ -91,10 +91,13 @@
 		91C0F5FD20EE74EF00527E70 /* _VIBarPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _VIBarPanGestureRecognizer.h; sourceTree = "<group>"; };
 		91C0F5FE20EE74EF00527E70 /* _VINavigationParallaxTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _VINavigationParallaxTransition.h; sourceTree = "<group>"; };
 		91C0F5FF20EE74EF00527E70 /* _VIBarTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _VIBarTapGestureRecognizer.m; sourceTree = "<group>"; };
-		91C0F60020EE74EF00527E70 /* UINavigationBar+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Private.h"; sourceTree = "<group>"; };
 		91C0F60120EE74EF00527E70 /* UIView+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Private.h"; sourceTree = "<group>"; };
 		91C0F60220EE74EF00527E70 /* UIViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Private.h"; sourceTree = "<group>"; };
 		91C0F60320EE74EF00527E70 /* VINavigationTransitionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VINavigationTransitionView.h; sourceTree = "<group>"; };
+		91FC881120F4D920006A637E /* VINavigationItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VINavigationItemView.h; sourceTree = "<group>"; };
+		91FC881220F4D920006A637E /* VINavigationItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VINavigationItemView.m; sourceTree = "<group>"; };
+		91FC881420F4D9D9006A637E /* VINavigationItemButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VINavigationItemButtonView.h; sourceTree = "<group>"; };
+		91FC881520F4D9D9006A637E /* VINavigationItemButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VINavigationItemButtonView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,10 @@
 			isa = PBXGroup;
 			children = (
 				91C0F5EF20EE74EF00527E70 /* DISNavigationControllerCommons.h */,
+				91FC881120F4D920006A637E /* VINavigationItemView.h */,
+				91FC881220F4D920006A637E /* VINavigationItemView.m */,
+				91FC881420F4D9D9006A637E /* VINavigationItemButtonView.h */,
+				91FC881520F4D9D9006A637E /* VINavigationItemButtonView.m */,
 				918AA5D220F05757005BDEDC /* VINavigationItem.h */,
 				918AA5D320F05757005BDEDC /* VINavigationItem.m */,
 				91C0F5E920EE74EF00527E70 /* VINavigationBar.h */,
@@ -188,27 +195,25 @@
 				91C0F5F720EE74EF00527E70 /* VINavigationController.h */,
 				91C0F5ED20EE74EF00527E70 /* VINavigationController.m */,
 				91C0F5EA20EE74EF00527E70 /* _VINavigationControllerPalette.h */,
-				91C0F5EB20EE74EF00527E70 /* _VINavigationInteractiveTransition.h */,
-				91C0F5EC20EE74EF00527E70 /* UIApplication+Private.h */,
-				91C0F5EE20EE74EF00527E70 /* _VINavigationParallaxTransition.m */,
-				91C0F5F020EE74EF00527E70 /* _VIBarPanGestureRecognizer.m */,
-				91C0F5F120EE74EF00527E70 /* _VIAnimationCoordinator.m */,
-				91C0F5F220EE74EF00527E70 /* UIView+Private.m */,
-				91C0F5F320EE74EF00527E70 /* UIViewController+Private.m */,
-				91C0F5F420EE74EF00527E70 /* UINavigationBar+Private.m */,
-				91C0F5F520EE74EF00527E70 /* _VIBarTapGestureRecognizer.h */,
-				91C0F5F620EE74EF00527E70 /* VINavigationTransitionView.m */,
-				91C0F5F820EE74EF00527E70 /* UIApplication+Private.m */,
-				91C0F5F920EE74EF00527E70 /* _VINavigationInteractiveTransition.m */,
 				91C0F5FA20EE74EF00527E70 /* _VINavigationControllerPalette.m */,
-				91C0F5FC20EE74EF00527E70 /* _VIAnimationCoordinator.h */,
-				91C0F5FD20EE74EF00527E70 /* _VIBarPanGestureRecognizer.h */,
 				91C0F5FE20EE74EF00527E70 /* _VINavigationParallaxTransition.h */,
-				91C0F5FF20EE74EF00527E70 /* _VIBarTapGestureRecognizer.m */,
-				91C0F60020EE74EF00527E70 /* UINavigationBar+Private.h */,
-				91C0F60120EE74EF00527E70 /* UIView+Private.h */,
-				91C0F60220EE74EF00527E70 /* UIViewController+Private.h */,
+				91C0F5EE20EE74EF00527E70 /* _VINavigationParallaxTransition.m */,
+				91C0F5EB20EE74EF00527E70 /* _VINavigationInteractiveTransition.h */,
+				91C0F5F920EE74EF00527E70 /* _VINavigationInteractiveTransition.m */,
 				91C0F60320EE74EF00527E70 /* VINavigationTransitionView.h */,
+				91C0F5F620EE74EF00527E70 /* VINavigationTransitionView.m */,
+				91C0F5FC20EE74EF00527E70 /* _VIAnimationCoordinator.h */,
+				91C0F5F120EE74EF00527E70 /* _VIAnimationCoordinator.m */,
+				91C0F5EC20EE74EF00527E70 /* UIApplication+Private.h */,
+				91C0F5F820EE74EF00527E70 /* UIApplication+Private.m */,
+				91C0F60120EE74EF00527E70 /* UIView+Private.h */,
+				91C0F5F220EE74EF00527E70 /* UIView+Private.m */,
+				91C0F5F520EE74EF00527E70 /* _VIBarTapGestureRecognizer.h */,
+				91C0F5FD20EE74EF00527E70 /* _VIBarPanGestureRecognizer.h */,
+				91C0F5F020EE74EF00527E70 /* _VIBarPanGestureRecognizer.m */,
+				91C0F5FF20EE74EF00527E70 /* _VIBarTapGestureRecognizer.m */,
+				91C0F60220EE74EF00527E70 /* UIViewController+Private.h */,
+				91C0F5F320EE74EF00527E70 /* UIViewController+Private.m */,
 				91915A4220F1A4B20032D138 /* UIBarButtonItem+Private.h */,
 			);
 			path = Classes;
@@ -349,15 +354,16 @@
 				91C0F60820EE74EF00527E70 /* UIView+Private.m in Sources */,
 				91C0F60620EE74EF00527E70 /* _VIBarPanGestureRecognizer.m in Sources */,
 				91C0F60920EE74EF00527E70 /* UIViewController+Private.m in Sources */,
-				91C0F60A20EE74EF00527E70 /* UINavigationBar+Private.m in Sources */,
 				91C0F61020EE74EF00527E70 /* _VIBarTapGestureRecognizer.m in Sources */,
 				91C0F60420EE74EF00527E70 /* VINavigationController.m in Sources */,
+				91FC881320F4D920006A637E /* VINavigationItemView.m in Sources */,
 				91C0F60720EE74EF00527E70 /* _VIAnimationCoordinator.m in Sources */,
 				915CAD8820EB406A007E2EDD /* AppDelegate.m in Sources */,
 				91C0F60520EE74EF00527E70 /* _VINavigationParallaxTransition.m in Sources */,
 				91C0F60E20EE74EF00527E70 /* _VINavigationControllerPalette.m in Sources */,
 				91C0F60C20EE74EF00527E70 /* UIApplication+Private.m in Sources */,
 				918AA5D420F05757005BDEDC /* VINavigationItem.m in Sources */,
+				91FC881620F4D9D9006A637E /* VINavigationItemButtonView.m in Sources */,
 				91C0F60F20EE74EF00527E70 /* VINavigationBar.m in Sources */,
 				91C0F60D20EE74EF00527E70 /* _VINavigationInteractiveTransition.m in Sources */,
 				91C0F60B20EE74EF00527E70 /* VINavigationTransitionView.m in Sources */,

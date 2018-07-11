@@ -9,14 +9,258 @@
 #import "VINavigationItem.h"
 #import "DISNavigationControllerCommons.h"
 #import "UIBarButtonItem+Private.h"
+#import "VINavigationItemButtonView.h"
 
 @implementation VINavigationItem
 
 #pragma mark - A
-- (id)_abbreviatedBackButtonTitles {
+- (BOOL)_accumulateViewsFromItems:(NSArray *)items isLeft:(BOOL)isLeft refreshViews:(BOOL)refreshViews {
+    if (!_navigationBar) {
+        return NO;
+    }
+    if ([_navigationBar _isAlwaysHidden]) {
+        return NO;
+    }
     
+    //loc_2506D67A
+    BOOL isMinibar = _navigationBar.isMinibar;
+    BOOL R4 = NO,var_8C = NO,var_C8 = NO;
+    NSMutableArray *arr1 = nil;
+    NSMutableArray *arr2 = nil;
+    if (items.count != 0) {
+        arr1 = [[NSMutableArray alloc] initWithCapacity:items.count];
+        arr2 = [[NSMutableArray alloc] initWithCapacity:items.count];
+        
+        for (UIBarButtonItem *item in items) {
+            if (!item.isSystemItem || (item.systemItem != 6 && item.systemItem != 5)) {
+                //loc_2506D8C8
+                BOOL isCustomViewItem = item.isCustomViewItem;
+                UIView *itemView = item.view;
+                if (refreshViews) {
+                    //loc_2506D9E4
+                    UIView *createdView = [item createViewForNavigationItem:self];
+                    if (!createdView) {
+                        //loc_2506DA4C
+                        [itemView setIsMinibarView:isMinibar];
+                        continue;
+                    }
+                    item.view = createdView;
+                    var_C8 = YES;
+                    //loc_2506DA04
+                    [item setIsMinibarView:isMinibar];
+                    //loc_2506DA0E
+                    [createdView _prepareToAppearInNavigationItem:self onLeft:isLeft];
+                    [arr1 addObject:createdView];
+                    if (!R4) {
+                        [arr2 addObject:NSNull.null];
+                    }
+                    //loc_2506DA48
+                    R4 = 0;
+                    //continue
+                }
+                else {
+                    BOOL flag = NO;
+                    
+                    if (itemView) {
+                        if (item.isSystemItem || item.landscapeImagePhone) {
+                            //loc_2506D904
+                            if (!isCustomViewItem) {
+                                if (item.isMinibarView != isMinibar) {
+                                    flag = YES;
+                                }
+                            }
+                        }
+                    }
+                }
+                if (flag) {
+                    //loc_2506D99A
+                    if (itemView.superview) {
+                        [itemView removeFromSuperview];
+                    }
+                    //loc_2506D9AC
+                    UIView *createdView = [item createViewForNavigationItem:self];
+                    [item setView:createdView];
+                    createdView.hidden = itemView.isHidden;
+                    var_C8 = YES;
+                    //loc_2506D93E
+                    [item setIsMinibarView:isMinibar];
+                    if (createdView) {
+                        //loc_2506DA0E
+                        [createdView _prepareToAppearInNavigationItem:self onLeft:isLeft];
+                        [arr1 addObject:createdView];
+                        if (!R4) {
+                            [arr2 addObject:NSNull.null];
+                        }
+                        //loc_2506DA48
+                        R4 = 0;
+                        //continue
+                    }
+                    else {
+                        continue;
+                    }
+                }
+                else {
+                    //loc_2506D91C
+                    if ([itemView respondsToSelector:@selector(updateForMiniBarState:)] && isCustomViewItem) {
+                        [itemView updateForMiniBarState:isMinibar];
+                        //loc_2506D93E
+                        [item setIsMinibarView:isMinibar];
+                        if (itemView) {
+                            //loc_2506DA0E
+                            [itemView _prepareToAppearInNavigationItem:self onLeft:isLeft];
+                            [arr1 addObject:itemView];
+                            if (!R4) {
+                                [arr2 addObject:NSNull.null];
+                            }
+                            //loc_2506DA48
+                            R4 = 0;
+                            //continue
+                        }
+                        else {
+                            continue;
+                        }
+                    }
+                    else {
+                        //loc_2506D9DE
+                        if (!itemView) {
+                            //loc_2506D9E4
+                            UIView *createdView = [item createViewForNavigationItem:self];
+                            if (!createdView) {
+                                //loc_2506DA4C
+                                [itemView setIsMinibarView:isMinibar];
+                                continue;
+                            }
+                            item.view = createdView;
+                            var_C8 = YES;
+                            //loc_2506DA04
+                        }
+                        //loc_2506DA04
+                        [item setIsMinibarView:isMinibar];
+                        //loc_2506DA0E
+                        [createdView _prepareToAppearInNavigationItem:self onLeft:isLeft];
+                        [arr1 addObject:createdView];
+                        if (!R4) {
+                            [arr2 addObject:NSNull.null];
+                        }
+                        //loc_2506DA48
+                        R4 = 0;
+                        //continue
+                    }
+                }
+            }
+            else {
+                //loc_2506D8B0
+                if (R4) {
+                    [arr2.lastObject addObject:item];
+                    //loc_2506D982
+                }
+                else {
+                    //loc_2506D952
+                    NSMutableArray *arr3 = [[NSMutableArray alloc] initWithObjects:item, nil];
+                    [arr2 addObject:arr3];
+                    [arr3 release];
+                    //loc_2506D982
+                }
+                //loc_2506D982
+                R4 = 1;
+                if (item.systemItem == 5) {
+                    var_8C = YES;
+                }
+            }
+        }
+        //end for
+        if (!R4) {
+            //loc_2506DABE
+            [arr2 addObject:NSNull.null];
+            //loc_2506DAEE
+        }
+        //loc_2506DAEE
+    }
+    else {
+        //loc_2506DA92
+        arr1 = nil;
+        arr2 = nil;
+        //loc_2506DAEE
+    }
+    //loc_2506DAEE
+    if (isLeft) {
+        [self _setCustomLeftViews:arr1];
+        [self _setLeftItemSpaceList:arr2];
+        [self _setLeftFlexibleSpaceCount:var_8C];
+        //loc_2506DB60
+    }
+    else {
+        //loc_2506DB2C
+        [self _setCustomRightViews:arr1];
+        [self _setRightItemSpaceList:arr2];
+        [self _setRightFlexibleSpaceCount:var_8C];
+        //loc_2506DB60
+    }
+    [arr1 release];
+    [arr2 release];
+    return var_C8;
 }
+
+- (void)_addDefaultTitleViewToNavigationBarIfNecessary {
+    if (!_titleView) {
+        UIView *defaultTitleView = [self _defaultTitleView];
+        if (defaultTitleView && !defaultTitleView.superview &&
+            _navigationBar.topItem == self
+            ) {
+            //loc_252738B4
+            [_navigationBar addSubview:defaultTitleView];
+        }
+    }
+}
+
+- (NSString *)_automationID {
+    return [@"BTN " stringByAppendingString:_title];
+}
+
 #pragma mark - B
+- (NSMutableDictionary *)_backgroundImages {
+    if (!_backgroundImages) {
+        _backgroundImages = [[NSMutableDictionary alloc] initWithCapacity:2];
+    }
+    return _backgroundImages;
+}
+
+- (UIButton *)_buttonForBackButtonIndicator {
+    for (UIBarButtonItem *item in _leftBarButtonItems) {
+        if (![item _hidden] && [item _showsBackButtonIndicator]) {
+            return item.view;
+        }
+    }
+}
+
+- (UIBarButtonItem *)backBarButtonItem {
+    return _backBarButtonItem;
+}
+
+- (NSString *)backButtonTitle {
+    return [_backButtonTitle.copy autorelease];
+}
+
+- (UIView *)backButtonView {
+    UIScreen *screen = [_navigationBar _screen];
+    if (!__shouldShowBackButtonForScreen(_navigationBar, screen)) {
+        return nil;
+    }
+    if (_backButtonView) {
+        return _backButtonView;
+    }
+    _backButtonView = [[VINavigationItemButtonView alloc] initWithNavigationItem:self];
+    id appearanceStorage = [[_navigationBar _appearanceStorage] _barButtonAppearanceStorage];
+    [_backButtonView _applyBarButtonAppearanceStorage:appearanceStorage withTaggedSelectors:0];
+    appearanceStorage = [_backBarButtonItem _appearanceStorage];
+    id taggedSelectors = objc_getAssociatedObject(_backBarButtonItem, __UIAppearanceAssociatedObjectTaggingKey);
+    [_backButtonView _applyBarButtonAppearanceStorage:appearanceStorage withTaggedSelectors:taggedSelectors];
+    Class guideClass = ;
+    if ([_UIAppearance _hasCustomizationsForClass:VINavigationItemButtonView.class guideClass:[_backButtonView _appearanceGuideClass]]) {
+        [_backButtonView _setAppearanceIsInvalid:YES];
+    }
+    return _backButtonView;
+}
 #pragma mark - C
 
 #pragma mark - D

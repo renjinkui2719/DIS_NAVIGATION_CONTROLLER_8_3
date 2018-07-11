@@ -20,6 +20,7 @@
 #import "DISNavigationControllerCommons.h"
 #import "UIApplication+Private.h"
 #import "UIViewController+Private.h"
+#import "VINavigationItem.h"
 
 @interface VINavigationBar : UINavigationBar
 {
